@@ -62,7 +62,10 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('copy', function () {
-  gulp.src(paths.htmls.files)
+  gulp.src(paths.htmls.main)
+    // .pipe($.rev())
+    // .pipe($.revReplace())
+    .pipe(gulp.dest(project.dev));  gulp.src(paths.htmls.files)
     // .pipe($.rev())
     // .pipe($.revReplace())
     .pipe(gulp.dest(project.dev));
@@ -96,8 +99,8 @@ gulp.task('inject', function () {
   };
 
   return gulp.src(paths.htmls.main)
-    .pipe($.inject(injectStyles, injectOptions))
-    .pipe($.inject(injectScripts, injectOptions))
+    //.pipe($.inject(injectStyles, injectOptions))
+    //.pipe($.inject(injectScripts, injectOptions))
     .pipe(wiredep(wiredepOptions))
     .pipe(gulp.dest(project.dev));
 });
@@ -156,8 +159,12 @@ gulp.task('watch', function () {
     .pipe(gulp.dest(project.dev))
     .pipe($.connect.reload());
 
-  gulp.watch(paths.htmls.main, ['inject']);
-  gulp.watch('bower.json', ['inject']);
+  $.watch(paths.htmls.main)
+    .pipe($.plumber())
+    .pipe(gulp.dest(project.dev))
+    .pipe($.connect.reload());
+  //gulp.watch(paths.htmls.main, ['inject']);
+  //gulp.watch('bower.json', ['inject']);
 
 });
 
@@ -202,7 +209,7 @@ gulp.task('build', function (cb) {
       'styles',
       'scripts'
     ],
-    'inject',
+    //'inject',
     'link',
     cb);
 });
