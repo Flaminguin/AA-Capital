@@ -53,7 +53,7 @@ $(function () {
     if (rate < 20) {
       curSceneIndex = 0;
       $('.chart-panel').fadeOut();
-    } else if (rate > 80) {
+    } else if (rate > 81) {
       curSceneIndex = 4;
       $('.chart-panel').fadeOut();
     } else {
@@ -81,12 +81,16 @@ $(function () {
       var scenes = $('.scene');
       if (event.deltaY < 0) {
         curSceneIndex++;
-        if (curSceneIndex == scenes.length) curSceneIndex--;
+        if (curSceneIndex == scenes.length) {
+          curSceneIndex--;
+        }
       } else {
         curSceneIndex--;
-        if (curSceneIndex < 0) curSceneIndex = 0;
+        if (curSceneIndex < 0) {
+          curSceneIndex = 0;
+        }
       }
-      $('html body').stop(true, false).animate(
+      $('body').stop(true, false).animate(
         {
           scrollTop: curSceneIndex * windowHeight
         },
@@ -97,4 +101,5 @@ $(function () {
     }
   }
 
-});
+})
+;
