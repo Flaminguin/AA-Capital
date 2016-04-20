@@ -1,0 +1,143 @@
+.nav-aa.mask, .content.mask, .footer.mask {
+  filter: blur(5px);
+}
+
+.team-banner {
+  position: relative;
+  height: 500px;
+  background: url('../images/1.jpeg');
+  background-size: cover;
+  .info {
+    padding-top: 140px;
+    .title {
+      width: 100px;
+      margin: 0 auto;
+      font-size: 30px;
+      white-space: nowrap;
+      color: #fff;
+      text-shadow: 1px 1px 2px #333;
+    }
+    .subtitle {
+      width: 600px;
+      margin: 20px auto;
+      font-size: 18px;
+      color: #fff;
+      text-align: center;
+      text-shadow: 1px 1px 1px #333;
+    }
+  }
+}
+
+.team-wall {
+  background-color: #f8f8f8;
+  .member-wrapper {
+    margin: -48px auto 30px auto;
+    width: 800px;
+    .member {
+      display: inline-block;
+      width: 240px;
+      padding: 10px;
+      .avatar {
+        position: relative;
+        border-radius: 4px;
+        width: 240px;
+        height: 300px;
+        margin: 0 auto;
+
+        .abstract {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 100;
+          width: 240px;
+          height: 300px;
+          background: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,64,.8));
+          opacity: 0;
+          transition: opacity .3s ease;
+
+
+          .info {
+            margin-top: 220px;
+            display: block;
+            color: #fff;
+            .title {
+              width: 100%;
+              font-size: 20px;
+              text-align: center;
+            }
+            .subtitle {
+              font-size: 14px;
+              text-align: center;
+            }
+          }
+        }
+
+        &:hover {
+          .abstract {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.team-details {
+  position: fixed;
+  top: 160px;
+  left: 0;
+  right: 0;
+  width: 680px;
+  margin: 0 auto;
+  opacity: 0;
+  transition: opacity .3s ease;
+  z-index: -1;
+  &.active {
+    opacity: 1;
+    z-index: 1001;
+  }
+  .avatar {
+    float: left;
+    width: 240px;
+    height: 300px;
+    opacity: 1;
+    transition: opacity .3s ease;
+    background: url('../images/1.jpeg');
+  }
+  .info {
+    float: left;
+    width: 360px;
+    padding-left: 40px;
+    .title {
+      color: #fff;
+      font-size: 24px;
+    }
+    .subtitle {
+      color: #fff;
+      font-size: 18px;
+    }
+    .description {
+      color: #fff;
+      font-size: 16px;
+    }
+  }
+}
+.team-details-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: rgba(0,0,0,.6);
+  transition: opacity .3s ease;
+  z-index: -1;
+  cursor: pointer;
+  &.active {
+    opacity: 1;
+    z-index: 1000;
+  }
+}
