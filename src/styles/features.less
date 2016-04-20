@@ -1,0 +1,31 @@
+.feature-panel {
+  position: fixed;
+  width: 640px;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  margin: 0 auto;
+  ul {
+    display: block;
+    li {
+      display: inline-block;
+      width: 200px;
+      .selector {
+        display: block;
+        width: 160px;
+        padding-top: 10px;
+        //text-align: center;
+        white-space: nowrap;
+        border-top: 1px solid #999;
+        color: #ccc;
+        opacity: 0.5;
+        transition: border-top 0.1s ease 0s, opacity 0.3s ease 0s;
+        &.active {
+          opacity: 1;
+          border-top: 3px solid #fff;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
