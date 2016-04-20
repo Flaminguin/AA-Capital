@@ -90,7 +90,8 @@ $(function () {
           curSceneIndex = 0;
         }
       }
-      $('body').stop(true, false).animate(
+      var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+      $body.stop(true, false).animate(
         {
           scrollTop: curSceneIndex * windowHeight
         },

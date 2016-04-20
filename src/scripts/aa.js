@@ -15,7 +15,7 @@ $(function() {
 
   function resize() {
     windowHeight = $(window).height();
-    $('.content').height(windowHeight);
+    $('.slider').height(windowHeight);
   }
 
   function nextSlider() {
