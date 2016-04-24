@@ -43,6 +43,23 @@ $(function () {
     }
   });
 
+  var scene = new ScrollMagic.Scene({triggerElement: $('#scene1'), reverse: true, triggerHook: .1});
+  scene.setTween(TweenMax.from('#animate1', .4, {
+    opacity: 0,
+    onComplete: drawWing
+  }));
+  scene.addTo(scrollController);
+
+  function drawWing() {
+    console.log($('#animate1'));
+    $('#animate1').lazylinepainter(
+        {
+          "svgData": pathObj,
+          "strokeWidth": 2,
+          "strokeColor": "#e09b99"
+        }).lazylinepainter('paint');
+  }
+
   function onResize() {
     windowHeight = $(window).height();
     $('.scene').height(windowHeight);
@@ -93,24 +110,22 @@ $(function () {
       var sceneIndex = curSceneIndex;
       if (event.deltaY < 0) {
         sceneIndex++;
-        if (sceneIndex == scenes.length) {
-          sceneIndex--;
-        }
       } else {
         sceneIndex--;
-        if (sceneIndex < 0) {
-          sceneIndex = 0;
-        }
       }
-      var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
-      $body.stop(true, false).animate(
-        {
-          scrollTop: sceneIndex * windowHeight
-        },
-        500,
-        function () {
-          mousewheelLock = false;
-        });
+      if (sceneIndex < scenes.length && sceneIndex >= 0) {
+        var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+        $body.stop(true, false).animate(
+            {
+              scrollTop: sceneIndex * windowHeight
+            },
+            500,
+            function () {
+              mousewheelLock = false;
+            });
+      } else {
+        mousewheelLock = false;
+      }
     }
   }
 })

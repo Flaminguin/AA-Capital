@@ -64,9 +64,11 @@ $(function () {
       } else if (rate < 60) {
         curSceneIndex = 2;
         rate = rate - 40;
-      } else {
+      } else if (rate < 80) {
         curSceneIndex = 3;
         rate = rate - 60;
+      } else {
+        curSceneIndex = 4;
       }
       var left0 = $('.line').eq(curSceneIndex - 1).position().left;
       var left1 = curSceneIndex < 3 ? $('.line').eq(curSceneIndex).position().left : 700;
@@ -79,26 +81,25 @@ $(function () {
     if (!mousewheelLock) {
       mousewheelLock = true;
       var scenes = $('.scene');
+      var sceneIndex = curSceneIndex;
       if (event.deltaY < 0) {
-        curSceneIndex++;
-        if (curSceneIndex == scenes.length) {
-          curSceneIndex--;
-        }
+        sceneIndex++;
       } else {
-        curSceneIndex--;
-        if (curSceneIndex < 0) {
-          curSceneIndex = 0;
-        }
+        sceneIndex--;
       }
-      var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
-      $body.stop(true, false).animate(
-        {
-          scrollTop: curSceneIndex * windowHeight
-        },
-        500,
-        function () {
-          mousewheelLock = false;
-        });
+      if (sceneIndex < scenes.length && sceneIndex >= 0) {
+        var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+        $body.stop(true, false).animate(
+            {
+              scrollTop: sceneIndex * windowHeight
+            },
+            500,
+            function () {
+              mousewheelLock = false;
+            });
+      } else {
+        mousewheelLock = false;
+      }
     }
   }
 
