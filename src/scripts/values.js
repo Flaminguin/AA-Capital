@@ -55,9 +55,10 @@ $(function () {
       $('.chart-panel').fadeOut();
     } else if (rate > 81) {
       curSceneIndex = 4;
-      $('.chart-panel').fadeOut();
+      $('.chart-panel').css('position', 'absolute');
     } else {
       $('.chart-panel').fadeIn();
+      $('.chart-panel').css('position', 'fixed');
       if (rate < 40) {
         curSceneIndex = 1;
         rate = rate - 20;

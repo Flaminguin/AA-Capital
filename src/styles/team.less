@@ -34,21 +34,24 @@
 }
 
 .team-wall {
-  background-color: #f8f8f8;
+  background-color: #f5f5f5;
   .member-wrapper {
     margin: 0 auto;
-    padding: 20px;
-    width: 800px;
+    padding: 80px 0;
+    width: 840px;
+    .member + .member {
+      padding-top: 60px;
+    }
     .member {
       //display: inline-block;
-      width: 240px;
-      padding: 10px;
+      overflow: hidden;
       .avatar {
-        position: relative;
+        float: left;
         //border-radius: 4px;
         width: 240px;
         height: 300px;
         margin: 0 auto;
+        box-shadow: 1px 8px 16px rgba(0,0,0,.26);
 
         .abstract {
           display: block;
@@ -86,6 +89,25 @@
             opacity: 1;
           }
         }
+      }
+      .info {
+        float: left;
+        padding-top: 5px;
+        padding-left: 30px;
+        width: 60px;
+        .name {
+          font-size: 20px;
+        }
+        .title {
+          font-size: 16px;
+          color: #757575;
+        }
+      }
+      .intro {
+        float: right;
+        padding-top: 5px;
+        width: 440px;
+        font-size: 16px;
       }
     }
   }
