@@ -11,10 +11,7 @@ ul {
 }
 
 a {
-  &:hover {
-    color: #10376D;
-    cursor: pointer;
-  }
+  text-decoration: none;
 }
 
 .nav-aa {
@@ -22,7 +19,8 @@ a {
   height: 80px;
   background-color: rgba(255, 255, 255, 0.3);
   z-index: 1000;
-  position: absolute;
+  //position: absolute;
+  position: fixed;
 
   .nav-wrapper {
     margin: 0 auto;
@@ -42,12 +40,20 @@ a {
       ul {
         li {
           display: inline-block;
-          color: #fff;
           margin: 0 20px;
           line-height: 80px;
           font-size: 16px;
           a {
+            color: #fff;
             transition: color .35s ease;
+            &:hover {
+              color: #10376D;
+              cursor: pointer;
+              //text-decoration: none;
+            }
+            .active{
+              color: #10376D;
+            }
           }
         }
       }
@@ -72,6 +78,15 @@ a {
       display: none;
       &.active {
         display: block;
+      }
+      .description{
+        position: absolute;
+        text-align: center;
+        top: 30%;
+        width: 100%;
+        margin: 0 auto;
+
+
       }
     }
 
@@ -106,6 +121,7 @@ a {
       height: 768px;
       background-repeat: no-repeat;
       background-size: cover;
+      background-size: cover;
       .scene-content {
         position: absolute;
         top: 30%;
@@ -136,7 +152,7 @@ a {
   .chart-panel {
     position: fixed;
     display: none;
-    top: 35%;
+    top: 45%;
     left: 0;
     right: 0;
 
