@@ -1,28 +1,42 @@
 .portfolio-wrapper {
-  background: url("../images/1.jpeg");
+  background: url("../images/portfolio/sky.jpg");
   background-size: cover;
   width: 100%;
   //height: 760px;
-  padding-top: 160px;
-  padding-bottom: 160px;
 
   .portfolio {
+    padding-top: 160px;
     .title {
       width: 100%;
       text-align: center;
       font-size: 26px;
       color: #fff;
+      margin-bottom: 40px;
     }
     .logo-wall {
       height: auto;
-      width: 800px;
+      width: 640px;
       margin: 0 auto;
+      overflow: hidden;
       .logo {
-        margin: 18px;
-        display: inline-block;
-        background-size: cover;
-        height: 120px;
-        width: 120px;
+        margin: 10px;
+        float: left;
+        //background-size: cover;
+        height: 140px;
+        width: 140px;
+        letter-spacing: 0;
+        //overflow: visible;
+        background-color: rgba(255,255,255, 0.8);
+        img{
+          width: 120px;
+          height: 120px;
+          padding: 10px;
+        }
+
+        &:hover{
+          cursor: pointer;
+          background-color: rgba(255,255,255,1);
+        }
       }
     }
   }

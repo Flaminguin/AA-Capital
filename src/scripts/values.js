@@ -23,14 +23,14 @@ $(function () {
         opacity: 0,
         'letter-spacing': '100px',
         'font-size': '4px'
-      }, {opacity: 1, 'letter-spacing': '0', 'font-size': '24px'}));
+      }, {opacity: 1, 'letter-spacing': '2', 'font-size': '26px', 'line-height': '32px'}));
       scene.addTo(scrollController);
       scene = new ScrollMagic.Scene({triggerElement: elem, reverse: true, triggerHook: .1});
       scene.setTween(TweenMax.fromTo(subtitles.eq(index), .4, {
         opacity: 0,
         'letter-spacing': '100px',
         'font-size': '4px'
-      }, {opacity: 1, 'letter-spacing': '0', 'font-size': '24px'}));
+      }, {opacity: 1, 'letter-spacing': '2', 'font-size': '26px', 'line-height': '32px'}));
       scene.addTo(scrollController);
       scene = new ScrollMagic.Scene({triggerElement: elem, reverse: true, triggerHook: .1});
       scene.setTween(TweenMax.from(points.eq(index - 1), .4, {bottom: 0, opacity: 0}));
