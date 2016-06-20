@@ -126,8 +126,8 @@ gulp.task('copy:prod', function () {
 gulp.task('minimize', function () {
   var jsFilter = $.filter('**/*.js');
   var cssFilter = $.filter('**/*.css');
-  return gulp.src(project.dev + '/index.html')
-    .pipe($.useref({searchPath: [project.dev, project.src]}))
+  return gulp.src(project.dev + '**/*.html')
+    .pipe($.useref({searchPath: [project.dev]}))
     .pipe(jsFilter)
     .pipe($.uglify())
     .pipe(jsFilter.restore())
