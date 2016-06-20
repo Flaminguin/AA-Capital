@@ -11,7 +11,7 @@ $(function () {
   $(window).scroll(onScroll);
   $('html').on('mousewheel', onMousewheel);
   $('.feature-panel ul li').on('click', function () {
-    var sceneIndex = $(this).index() + 1;
+    var sceneIndex = $(this).index();
     var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
     $body.stop(true, false).animate(
       {
@@ -25,22 +25,21 @@ $(function () {
   var points = $('.point');
   var lines = $('.line');
   $('.scene').each(function (index, elem) {
-    if (index > 0) {
-      var scene = new ScrollMagic.Scene({triggerElement: elem, reverse: true, triggerHook: .1});
-      scene.setTween(TweenMax.fromTo(titles.eq(index), .4, {
-        opacity: 0,
-        'letter-spacing': '100px',
-        'font-size': '4px'
-      }, {opacity: 1, 'letter-spacing': '0', 'font-size': '24px'}));
-      scene.addTo(scrollController);
-      scene = new ScrollMagic.Scene({triggerElement: elem, reverse: true, triggerHook: .1});
-      scene.setTween(TweenMax.fromTo(subtitles.eq(index), .4, {
-        opacity: 0,
-        'letter-spacing': '100px',
-        'font-size': '4px'
-      }, {opacity: 1, 'letter-spacing': '0', 'font-size': '24px'}));
-      scene.addTo(scrollController);
-    }
+    var scene = new ScrollMagic.Scene({triggerElement: elem, reverse: true, triggerHook: .1});
+    scene.setTween(TweenMax.fromTo(titles.eq(index), .4, {
+      opacity: 0,
+      'letter-spacing': '100px',
+      'font-size': '4px'
+    }, {opacity: 1, 'letter-spacing': '0', 'font-size': '28px'}));
+    scene.addTo(scrollController);
+    scene = new ScrollMagic.Scene({triggerElement: elem, reverse: true, triggerHook: .1});
+    scene.setTween(TweenMax.fromTo(subtitles.eq(index), .4, {
+      opacity: 0,
+      'letter-spacing': '100px',
+      'font-size': '4px'
+    }, {opacity: 0.7, 'letter-spacing': '0', 'font-size': '18px'}));
+    scene.addTo(scrollController);
+
   });
 
   var scene = new ScrollMagic.Scene({triggerElement: $('#scene1'), reverse: true, triggerHook: .1});
@@ -71,18 +70,16 @@ $(function () {
     var rate = windowScrollTop * 100 / contentHeight;
     var sceneIndex = curSceneIndex;
     $('.feature-panel').css('position', 'fixed');
-    if (rate < 25) {
+    if (rate < 33) {
       sceneIndex = 0;
-    } else if (rate > 75) {
-      sceneIndex = 3;
+    } else if (rate > 66) {
+      sceneIndex = 2;
       $('.feature-panel').css('position', 'absolute');
     } else {
-      if (rate < 50) {
+      if (rate < 66) {
         sceneIndex = 1;
-      } else if (rate < 75) {
-        sceneIndex = 2;
       } else {
-        sceneIndex = 3;
+        sceneIndex = 2;
       }
     }
     if (curSceneIndex != sceneIndex) {
@@ -96,9 +93,7 @@ $(function () {
       selectors.each(function (index, elem) {
         selectors.eq(index).removeClass('active');
       });
-      if (sceneIndex > 0) {
-        selectors.eq(sceneIndex - 1).addClass('active');
-      }
+      selectors.eq(sceneIndex).addClass('active');
     }
     curSceneIndex = sceneIndex;
   }

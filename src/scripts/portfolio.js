@@ -9,7 +9,7 @@ $(function () {
 
   function onResize() {
     windowHeight = $(window).height();
-    $('.portfolio-wrapper').height(windowHeight);
+    // $('.portfolio-wrapper').height(windowHeight);
   }
 })
 ;

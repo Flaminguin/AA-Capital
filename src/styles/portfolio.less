@@ -3,39 +3,95 @@
   background-size: cover;
   width: 100%;
   //height: 760px;
-
+  padding: 120px 0;
+  .portfolio + .portfolio {
+    padding-top: 60px;
+  }
   .portfolio {
-    padding-top: 160px;
     .title {
-      width: 100%;
-      text-align: center;
+      width: 700px;
+      margin: 0 auto;
+      padding: 0 10px;
+      text-align: left;
       font-size: 26px;
       color: #fff;
-      margin-bottom: 40px;
     }
+    .subtitle {
+      width: 700px;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 20px;
+      color: #fff;
+      opacity: .8;
+    }
+    .line {
+      width: 700px;
+      margin: 10px auto;
+      height: 1px;
+      background-color: #fff;
+      opacity: .5;
+    }
+
     .logo-wall {
       height: auto;
       width: 640px;
       margin: 0 auto;
       overflow: hidden;
       .logo {
+        position: relative;
         margin: 10px;
         float: left;
-        //background-size: cover;
         height: 140px;
         width: 140px;
-        letter-spacing: 0;
-        //overflow: visible;
-        background-color: rgba(255,255,255, 0.8);
+        background-color: rgba(255,255,255, .36);
+        border-radius: 4px;
         img{
           width: 120px;
           height: 120px;
           padding: 10px;
         }
-
+        .mask {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 10px;
+          width: 120px;
+          height: 120px;
+          border-radius: 4px;
+          background-color: rgba(255,255,255,1);
+          opacity: 0;
+          transition: opacity .35s ease;
+          .name {
+            font-size: 20px;
+          }
+          .desc {
+            font-size: 14px;
+            opacity: .75;
+          }
+          .info-hr {
+            position: absolute;
+            width: 120px;
+            height: 1px;
+            background-color: rgba(100,50,255,.3);;
+            bottom: 36px;
+          }
+          .investor {
+            position: absolute;
+            width: 100%;
+            bottom: 10px;
+            span {
+              font-style: italic;
+              color: #10376D;
+            }
+          }
+        }
         &:hover{
           cursor: pointer;
-          background-color: rgba(255,255,255,1);
+          .mask {
+            opacity: .85;
+          }
         }
       }
     }
