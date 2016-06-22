@@ -50,12 +50,27 @@
       //display: inline-block;
       overflow: hidden;
       .avatar {
+        position: relative;
         float: left;
         //border-radius: 4px;
         width: 240px;
         height: 300px;
         margin: 10px;
         box-shadow: 1px 4px 10px rgba(0,0,0,.36);
+
+        .img-container {
+          position: relative;
+          opacity: 1;
+          transition: opacity .35s ease;
+        }
+
+        .img-mask {
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          transition: opacity .35s ease;
+        }
 
         .abstract {
           display: block;
@@ -90,6 +105,12 @@
 
         &:hover {
           .abstract {
+            opacity: 1;
+          }
+          .img-container {
+            opacity: 0;
+          }
+          .img-mask {
             opacity: 1;
           }
         }
