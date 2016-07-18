@@ -26,18 +26,16 @@ $(function () {
   var lines = $('.line');
   $('.scene').each(function (index, elem) {
     var scene = new ScrollMagic.Scene({triggerElement: elem, reverse: true, triggerHook: .1});
-    scene.setTween(TweenMax.fromTo(titles.eq(index), .4, {
-      opacity: 0,
-      'letter-spacing': '100px',
-      'font-size': '4px'
-    }, {opacity: 1, 'letter-spacing': '0', 'font-size': '28px'}));
+    scene.setTween(TweenMax.fromTo(titles.eq(index), .4,
+      {opacity: 0, 'letter-spacing': '100px', 'font-size': '4px'},
+      {opacity: 1, 'letter-spacing': '0', 'font-size': '40px'}));
     scene.addTo(scrollController);
     scene = new ScrollMagic.Scene({triggerElement: elem, reverse: true, triggerHook: .1});
     scene.setTween(TweenMax.fromTo(subtitles.eq(index), .4, {
       opacity: 0,
       'letter-spacing': '100px',
       'font-size': '4px'
-    }, {opacity: 0.7, 'letter-spacing': '0', 'font-size': '18px'}));
+    }, {opacity: 1, 'letter-spacing': '0', 'font-size': '18px'}));
     scene.addTo(scrollController);
 
   });
