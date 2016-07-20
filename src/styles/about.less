@@ -39,6 +39,21 @@
         font-size: 20px;
         color: #fff;
       }
+      .qrcode {
+        width: 400px;
+        height: 240px;
+        margin: 20px auto;
+        text-align: center;
+        img {
+          width: 200px;
+          height: 200px;
+        }
+        .follow {
+          line-height: 40px;
+          font-size: 17px;
+          color: white;;
+        }
+      }
       .left {
         float: left;
         padding-left: 20px;
@@ -65,14 +80,17 @@
         .text {
           float: left;
           padding-left: 16px;
-          width: 200px;
+          //width: 200px;
           font-size: 16px;
           line-height: 30px;
           span {
-            display: block;
+            display: inline-block;
             line-height: 25px;
             font-size: 16px;
             white-space: nowrap;
+            &.forehead {
+              width: 70px;
+            }
           }
         }
       }
